@@ -1,10 +1,14 @@
 import './App.css'
 import Home from '../src/Components/Home'
+import Layout from './Layout/Layout'
+
 function App() {
 
   return (
     <div className="text-yellow-800">
-      <Home />
+      <Layout>
+        <Home />
+      </Layout>
     </div>
   )
 }
