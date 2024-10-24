@@ -1,15 +1,18 @@
 import './App.css'
 import Home from '../src/Components/Home'
-import Layout from './Layout/Layout'
+import { Route } from 'react-router-dom'
+import { Routes } from 'react-router-dom'
+import Signup from './Auth/Signup'
 
 function App() {
 
   return (
-    <div className="text-yellow-800">
-      <Layout>
-        <Home />
-      </Layout>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/auth/signup" element={<Signup />}/>
+      </Routes>
+    </>
   )
 }
 

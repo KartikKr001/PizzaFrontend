@@ -6,6 +6,7 @@ import enjoy from  '../assets/images/enjoy.png'
 import pickup from '../assets/images/pickup.png'
 import order from '../assets/images/orderFood.png'
 import About from "./About";
+import Layout from "../Layout/Layout";
 
 
 
@@ -13,7 +14,7 @@ import About from "./About";
 
 function Home(){
     return (
-        <div>
+        <Layout>
             {/* Hero Section */}
             <section className="flex flex-col-reverse items-center justify-center py-5 md:flex-row md:gap-7 bg-gradient-to-r from-amber-50 to-orange-300">
                 <div className="w-4/6 nl-4 text-center md:w-2/6 md:text-left">
@@ -136,7 +137,7 @@ function Home(){
 
 
 
-        </div>
+        </Layout>
     );
 }
 
