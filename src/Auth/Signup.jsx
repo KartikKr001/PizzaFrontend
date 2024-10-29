@@ -1,6 +1,11 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SignupPresentation from "./SignupPresentation";
+import { useDispatch } from "react-redux";
+import { createAccount } from "../Redux/Slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
+
+
 
 function Signup(){
     const [signupState,setSignupState] = useState({
@@ -10,6 +15,12 @@ function Signup(){
         mobileNumber: ""
     });
 
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
+
     function handleUserInput(e){        //fetches  the input from the user
         const {name,value} = e.target;
         setSignupState({
@@ -18,15 +29,24 @@ function Signup(){
         });
     }
 
-    function handleUserSubmit(e){
+    async function handleUserSubmit(e){
         e.preventDefault();
-        console.log(signupState);
+        console.log("final signup state: ",signupState);
 
         // adding validations
         if(signupState.firstName === "" ||  signupState.email === "" || signupState.password === "" || signupState.mobileNumber === ""){
             toast.error("Please fill all the fields");
             return;
         }
+
+        const apiResponse = await dispatch(createAccount(signupState));
+        console.log("res: ",apiResponse);
+        if(apiResponse.payload.data.success){
+            navigate('/auth/login');
+        }
+
+        
+
     }
     return(
         <SignupPresentation 
