@@ -29,7 +29,7 @@ function Footer() {
               <Link to="/faqs/" className="typography-7 block" target="_self">FAQs & Help</Link>
             </div>
             <div className="p-20 pb-0 mb-20">
-              <h4 className="mb-5 typography-4">Visit Pizza Hut</h4>
+              <h4 className="mb-5 typography-4">Visit Our Store</h4>
               <a href="https://restaurants.pizzahut.co.in" className="typography-7 block" target="_blank" rel="noopener">Locate a store</a>
               <a href="http://blog.pizzahut.com/" className="typography-7 block" target="_blank" rel="noopener">Global Blog</a>
             </div>

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import Layout from "../Layout/Layout";
 
 function LoginPresentation({handleUserSubmit,handleUserInput}) {
     return (
-        <>
+        <Layout>
             <section className="text-gray-600 body-font">
                 <div className="flex flex-wrap items-center h-screen px-10 py-6 mx-auto">
                 <div className="hidden p-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 md:block">
@@ -189,7 +190,7 @@ function LoginPresentation({handleUserSubmit,handleUserInput}) {
                     </form>
                 </div>
             </section>
-        </>
+        </Layout>
     )
 }
 
