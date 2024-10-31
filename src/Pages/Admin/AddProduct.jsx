@@ -1,7 +1,6 @@
 import Layout from "../../Layout/Layout";
-import Food from '../../assets/images/Food.svg';
+import Food from '../../assets/images/food.svg';
 function AddProduct() {
-    
     return (
         <Layout>
            <section className="py-12">
