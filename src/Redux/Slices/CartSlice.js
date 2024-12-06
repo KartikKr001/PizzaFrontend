@@ -8,7 +8,7 @@ const initialState = {
 
 export const addProductToCart = createAsyncThunk('/carts/addProduct',async (productId)=>{
     try{
-        const response = axiosInstance.post(`/carts/add/${productId}`);
+        const response = axiosInstance.post(`/carts/add/${productId}`,{ withCredentials: true });
         toast.promise(response,{
             loading : 'Added product to cart',
             error : "Something went wrong, Cann't add product",
@@ -28,7 +28,7 @@ export const addProductToCart = createAsyncThunk('/carts/addProduct',async (prod
 
 export const getCartDetails = createAsyncThunk('/cart/getdetails',async ()=>{
     try{
-        const response = axiosInstance.get(`/carts`);
+        const response = axiosInstance.get(`/carts`,{ withCredentials: true });
         toast.promise(response,{
             loading : 'Fetching cart details...',
             error : "Something went wrong, Cann't fetch cart",
@@ -46,7 +46,7 @@ export const getCartDetails = createAsyncThunk('/cart/getdetails',async ()=>{
 
 export const removeProductFromCart = createAsyncThunk('/cart/removeProduct',async (productId)=>{
     try{
-        const response = axiosInstance.post(`/carts/remove/${productId}`);
+        const response = axiosInstance.post(`/carts/remove/${productId}`,{ withCredentials: true });
         toast.promise(response,{
             loading : 'Removed product to cart',
             error : "Something went wrong, Cann't remove product",
