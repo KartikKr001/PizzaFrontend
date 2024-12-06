@@ -6,6 +6,8 @@ const initialState = {
     productsData : [] //array of products
 }
 
+axiosInstance.defaults.withCredentials = true; // Ensure cookies are sent with every request
+
 export const getAllProducts = createAsyncThunk('/products/getAll',async () =>{
     try{
         const products = axiosInstance.get('/products');

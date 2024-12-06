@@ -5,10 +5,11 @@ import toast from "react-hot-toast";
 const initialState = {
     cartsData : ''
 }
+axiosInstance.defaults.withCredentials = true; // Ensure cookies are sent with every request
 
 export const addProductToCart = createAsyncThunk('/carts/addProduct',async (productId)=>{
     try{
-        const response = axiosInstance.post(`/carts/add/${productId}`,{ withCredentials: true });
+        const response = axiosInstance.post(`/carts/add/${productId}`);
         toast.promise(response,{
             loading : 'Added product to cart',
             error : "Something went wrong, Cann't add product",
@@ -28,7 +29,7 @@ export const addProductToCart = createAsyncThunk('/carts/addProduct',async (prod
 
 export const getCartDetails = createAsyncThunk('/cart/getdetails',async ()=>{
     try{
-        const response = axiosInstance.get(`/carts`,{ withCredentials: true });
+        const response = axiosInstance.get(`/carts`);
         toast.promise(response,{
             loading : 'Fetching cart details...',
             error : "Something went wrong, Cann't fetch cart",
@@ -46,7 +47,7 @@ export const getCartDetails = createAsyncThunk('/cart/getdetails',async ()=>{
 
 export const removeProductFromCart = createAsyncThunk('/cart/removeProduct',async (productId)=>{
     try{
-        const response = axiosInstance.post(`/carts/remove/${productId}`,{ withCredentials: true });
+        const response = axiosInstance.post(`/carts/remove/${productId}`);
         toast.promise(response,{
             loading : 'Removed product to cart',
             error : "Something went wrong, Cann't remove product",

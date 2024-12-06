@@ -9,6 +9,8 @@ const initialState = {
     // local storage m as a string store hota h, we need  to parse it to object
 }
 
+axiosInstance.defaults.withCredentials = true; // Ensure cookies are sent with every request
+
 export const createAccount = createAsyncThunk('/auth/createAccount',async (data) =>{
     console.log("Incoming data to thunk",data);
     try{

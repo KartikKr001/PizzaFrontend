@@ -6,6 +6,8 @@ const initialState = {
     ordersData: null
 }
 
+axiosInstance.defaults.withCredentials = true; // Ensure cookies are sent with every request
+
 export const placeOrder = createAsyncThunk('/order/placeOrder', async (data) => {
     try {
         const response = axiosInstance.post(`/orders`,data);
