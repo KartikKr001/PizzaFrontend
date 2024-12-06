@@ -7,10 +7,10 @@ function RequireAuth({userRole}){
     console.log("user: ",userRole);
     console.log("role:",role);
     if(isLoggedIn){
-        if(role == 'admin' || role == 'ADMIN'){
+        if(role == 'ADMIN'){
             return <Outlet />;
         }
-        else if(role != 'admin' &&  userRole == 'admin'){
+        else if(role != 'ADMIN' &&  userRole == 'ADMIN'){
             return <Denied />;
         }
         else return <Outlet/>

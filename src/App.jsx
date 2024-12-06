@@ -20,12 +20,12 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/auth/signup" element={<Signup/>}/>
         <Route path="/auth/login" element={<Login/>}/>
-        <Route element={<RequireAuth userRole = 'user'/>}>
+        <Route element={<RequireAuth userRole = 'USER'/>}>
           <Route path="/cart" element={<CartDetails/>}/>
           <Route path="/order" element={<Order/>}/>
           <Route path="/order/success" element={<OrderSuccess/>}/>
         </Route>
-        <Route element = {<RequireAuth userRole = 'admin'/>}>
+        <Route element = {<RequireAuth userRole = 'ADMIN'/>}>
           <Route path="/admin/addProduct" element={<AddProduct/>}/>
         </Route>
         <Route path="/product/:productId" element={<ProductDetails/>}/>

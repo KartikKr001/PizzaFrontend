@@ -6,7 +6,7 @@ const initialState = {
     cartsData : ''
 }
 
-export const addProductToCart = createAsyncThunk('/cart/addProduct',async (productId)=>{
+export const addProductToCart = createAsyncThunk('/carts/addProduct',async (productId)=>{
     try{
         const response = axiosInstance.post(`/carts/add/${productId}`);
         toast.promise(response,{
