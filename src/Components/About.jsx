@@ -1,7 +1,9 @@
-function About() {
+import { useNavigate } from "react-router-dom";
+function About({homePage}) {
+    const navigate = useNavigate();
     return (
         <div>
-            <div className="flex flex-col mt-10 md:flex-row p-20">
+            <div className="flex flex-col md:flex-row p-20">
                 <div className="flex relative justify-start mt-4 md:w-2/3 m-5">
                     <iframe
                         className="rounded-3xl w-full"
@@ -32,6 +34,19 @@ function About() {
                     </p>
                 </div>
             </div>
+            {!homePage ? (
+                    <div className="flex justify-center mt-0 mb-4">
+                        <button className="mt-5" onClick={() => navigate(-1)}>
+                            <a className="relative inline-block text-sm font-medium text-[#fff] group active:text-yellow-500 focus:outline-none focus:ring">
+                            <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#EAB308] group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                            <span className="relative block px-8 py-3 bg-[#EAB308] border border-current">
+                                Go Back
+                            </span>
+                            </a>
+                        </button>
+                    </div>
+                    ) : null
+                }
         </div>
     );
 }

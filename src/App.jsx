@@ -14,12 +14,14 @@ import RequireAuth from './Components/Auth/RequireAuth'
 import Footer from './Components/Footer'
 // import Menu from './Pages/Menu/Menu'
 import About from './Components/About'
+import { useSelector } from 'react-redux'
 import Menu from './Components/Menu'
 import Service from './Components/Service'
 import Navbar from './Components/Navbar'
 // import { useRef } from 'react'
 
 function App() {
+  const { productsData } = useSelector((state) => state.product);
   return (
     <>
       <Routes>
@@ -29,21 +31,21 @@ function App() {
         <Route path="/about" element={
           <>
             <Navbar />
-            <About/>
+            <About homePage={false}/>
             <Footer/>
           </>
         }/>
         <Route path="/menu" element={
           <>
             <Navbar />
-            <Menu/>
+            <Menu homePage = {false}/>
             <Footer/>
           </>
       }/>
         <Route path="/services" element={
           <>
             <Navbar />
-            <Service/>
+            <Service homePage={false}/>
             <Footer/>  
           </>}/>
         <Route element={<RequireAuth userRole = 'USER'/>}>

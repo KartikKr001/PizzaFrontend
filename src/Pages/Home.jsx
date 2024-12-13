@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import 
 import Menu from "../Components/Menu";
 import Service from "../Components/Service";
+import { Link } from "react-router-dom";
 // import { setServiceRef,setAboutRef,setMenuRef } from "../Redux/Slices/refSlice";
 
 
@@ -22,7 +23,7 @@ function Home(){
     //     dispatch(setServiceRef(serviceRef));
     //     dispatch(setAboutRef(aboutRef));
     // }, []);
-
+    const { productsData } = useSelector((state) => state.product);
     
     return (
         <Layout>
@@ -42,14 +43,14 @@ function Home(){
                     <p className="pb-4 text-[#6b7428]">
                         The Pizza App let you order your favourite pizza from the comfort of your home, Enjoy the best pizza in town with just few clicks
                     </p>
-                    <button className="flex items-center px-4 py-2 text-white bg-orange-400 rounded-md hover:bg-orange-500 group">
-                        Order Now
-                        <span className="inline-block ml-3 transition-transform ease-in-out group-hover:translate-x-2">
-                            <IconArrowRight />
-                        </span>
-                            
-                    </button>
-
+                    <Link to={'/menu'}>
+                        <button className="flex items-center px-4 py-2 text-white bg-orange-400 rounded-md hover:bg-orange-500 group">
+                            Order Now
+                            <span className="inline-block ml-3 transition-transform ease-in-out group-hover:translate-x-2">
+                                <IconArrowRight />
+                            </span>
+                        </button>
+                    </Link>
                 </div>
 
                 <div>
@@ -61,11 +62,11 @@ function Home(){
                 </div>
             </section>
 
-            <Service/>
+            <Service homePage={true}/>
 
-            <About />
+            <About homePage={true}/>
 
-            <Menu />
+            <Menu flag={productsData == []} homePage = {true}/>
             
 
         </Layout>

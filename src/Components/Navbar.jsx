@@ -29,10 +29,10 @@ function Navbar() {
     return (
         <nav>
             <div className="flex items-center justify-around h-16 text-[#687280] font-mono border-none shadow-md">
-                    <div className="flex items-center justify-center" onClick={()=>navigate('/')}>
-                        <h3>Pizza App</h3>                        
-                        <img src={PizzaLogo} alt="" height={60} width={60}/>
-                    </div>
+                <Link to={'/'} className="flex items-center justify-center">
+                    <h3>Pizza App</h3>                        
+                    <img src={PizzaLogo} alt="" height={60} width={60}/>
+                </Link>
 
                 <div className='hidden md:block'>
                     <ul className='flex gap-4'>

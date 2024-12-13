@@ -11,11 +11,10 @@ axiosInstance.defaults.withCredentials = true; // Ensure cookies are sent with e
 export const getAllProducts = createAsyncThunk('/products/getAll',async () =>{
     try{
         const products = axiosInstance.get('/products');
-        toast.promise(products,{
-            loading : 'Loading all the products',
-            error : "Something went wrong, Cann't load products",
-            success : "Products loaded successfully"
-        })
+        // toast.promise(products,{
+        //     loading : 'Loading all the products',
+        //     error : "Something went wrong, Cann't load products"
+        // })
         const apiResponse = await products;
         return apiResponse;
     }
@@ -28,11 +27,10 @@ export const getAllProducts = createAsyncThunk('/products/getAll',async () =>{
 export const getProductDetails = createAsyncThunk('/products/details',async (id) =>{ 
     try{
         const product = axiosInstance.get(`/products/${id}`);
-        toast.promise(product,{
-            loading : 'Fetching your product',
-            error : "Something went wrong, Cann't load product",
-            success : "Product loaded successfully"
-        })
+        // toast.promise(product,{
+        //     loading : 'Fetching your product',
+        //     error : "Something went wrong, Cann't load product"
+        // })
         const apiResponse = await product;
         return apiResponse;
     }

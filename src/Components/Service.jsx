@@ -3,8 +3,10 @@ import Check  from '../Components/Check'
 import enjoy from  '../assets/images/enjoy.png'
 import pickup from '../assets/images/pickup.png'
 import order from '../assets/images/orderFood.png'
+import { useNavigate } from 'react-router-dom'
 
-function Service(){
+function Service({homePage}){
+    const navigate = useNavigate();
     return (
         <section className="py-4 mt-6 bg-gradient-to-r from-amber-50 to-orange-300">
                 <div className="container flex flex-col md:flex-row">
@@ -82,6 +84,19 @@ function Service(){
 
                     </div>
                 </div>
+                {!homePage ? (
+                    <div className="flex justify-center mt-4 mb-4">
+                        <button className="mt-5" onClick={() => navigate(-1)}>
+                            <a className="relative inline-block text-sm font-medium text-[#fff] group active:text-yellow-500 focus:outline-none focus:ring">
+                            <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#EAB308] group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                            <span className="relative block px-8 py-3 bg-[#EAB308] border border-current">
+                                Go Back
+                            </span>
+                            </a>
+                        </button>
+                    </div>
+                    ) : null
+                }
             </section>
     )
 }
