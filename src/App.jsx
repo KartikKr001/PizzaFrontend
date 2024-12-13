@@ -11,15 +11,41 @@ import CartDetails from './Pages/Cart/CartDetails'
 import Order from './Pages/Order/Order'
 import OrderSuccess from './Pages/Order/OrderSuccess'
 import RequireAuth from './Components/Auth/RequireAuth'
+import Footer from './Components/Footer'
+// import Menu from './Pages/Menu/Menu'
+import About from './Components/About'
+import Menu from './Components/Menu'
+import Service from './Components/Service'
+import Navbar from './Components/Navbar'
+// import { useRef } from 'react'
 
 function App() {
-  
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/auth/signup" element={<Signup/>}/>
         <Route path="/auth/login" element={<Login/>}/>
+        <Route path="/about" element={
+          <>
+            <Navbar />
+            <About/>
+            <Footer/>
+          </>
+        }/>
+        <Route path="/menu" element={
+          <>
+            <Navbar />
+            <Menu/>
+            <Footer/>
+          </>
+      }/>
+        <Route path="/services" element={
+          <>
+            <Navbar />
+            <Service/>
+            <Footer/>  
+          </>}/>
         <Route element={<RequireAuth userRole = 'USER'/>}>
           <Route path="/cart" element={<CartDetails/>}/>
           <Route path="/order" element={<Order/>}/>

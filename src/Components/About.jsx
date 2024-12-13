@@ -1,7 +1,6 @@
 function About() {
     return (
         <div>
-
             <div className="flex flex-col mt-10 md:flex-row p-20">
                 <div className="flex relative justify-start mt-4 md:w-2/3 m-5">
                     <iframe

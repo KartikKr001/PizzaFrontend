@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartDetails, removeProductFromCart } from "../../Redux/Slices/CartSlice"
 import Layout from "../../Layout/Layout";
 import { Link } from "react-router-dom";
+import plus from '../../assets/images/plus.svg'
+import minus from '../../assets/images/minus.svg'
+
 
 function CartDetails() {
     const [cartDetails, setCartDetails] = useState();
     const dispatch = useDispatch();
     const { cartsData } = useSelector((state) => state.cart);
-    const [isInCart,SetIsInCart] = useState(true)
+    const [isInCart,SetIsInCart] = useState(true);
+    const [amount,setAmount] = useState(0);
 
     async function fetchCartDetails() {
         const response = await dispatch(getCartDetails());
@@ -131,12 +135,12 @@ function CartDetails() {
                   {cartDetails?.items.length > 0 && (
                     <Link
                       to={'/order'}
+                      amt = {amount}
                       className="flex justify-center text-white bg-yellow-400 border border-yellow-500 rounded-md hover:bg-yellow-700"
                     >
                       Proceed to Checkout
                     </Link>
                   )}
-
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
                       {' '}

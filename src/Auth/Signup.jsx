@@ -38,11 +38,18 @@ function Signup(){
             toast.error("Please fill all the fields");
             return;
         }
+        if(signupState.firstName.size < 5){
+            toast.error("First Name must be 5 characters long");
+            return;
+        }
 
         const apiResponse = await dispatch(createAccount(signupState));
         console.log("res: ",apiResponse);
         if(apiResponse.payload.data.success){
             navigate('/auth/login');
+        }
+        else{
+            
         }
 
         

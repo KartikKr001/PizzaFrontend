@@ -6,6 +6,6 @@ axiosInstance.defaults.baseURL = import.meta.env.VITE_BACKEND_URL  // set base u
 
 axiosInstance.defaults.withCredentials = true  // Allows cookies to be sent with requests
 
-export default  axiosInstance; // Export the instance
+export default axiosInstance; // Export the instance
 
 

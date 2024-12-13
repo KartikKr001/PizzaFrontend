@@ -1,9 +1,19 @@
+import { useRef } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import PizzaLogo from '../assets/images/pizza1.png'
 import {useDispatch, useSelector}  from 'react-redux'
 import { logout } from '../Redux/Slices/AuthSlice';
-import CartIcon from '../assets/images/cart.svg'
-function Navbar(){
+import CartIcon from '../assets/images/cart.svg';
+
+function Navbar() {
+    // const { menuRef, serviceRef, aboutRef } = useSelector((state) => state.refs);
+
+    // const scrollToSection = (elementRef) => {
+    //     window.scrollTo({
+    //     top: elementRef.current.offsetTop,
+    //     behavior: 'smooth'
+    //     })
+    // }
 
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const dispatch = useDispatch();
@@ -28,15 +38,24 @@ function Navbar(){
                     <ul className='flex gap-4'>
                             <li className='hover:text-[#Ff9110]'>
                                 {' '}
-                                Menu {' '}
+                                <Link
+                                to={'/menu'}
+                                // onClick = {()=>scrollToSection(menuRef)}
+                                >Menu</Link>{' '}
                             </li>
                             <li className='hover:text-[#Ff9110]'>
                                 {' '}
-                                Services {' '}
+                                <Link
+                                to={'/services'}
+                                // onClick = {()=>scrollToSection(serviceRef)}
+                                >Services</Link>{' '}
                             </li>
                             <li className='hover:text-[#Ff9110]'>
                                 {' '}
-                                About {' '}
+                                <Link
+                                to={'/about'}
+                                // onClick = {()=>scrollToSection(aboutRef)}
+                                >About</Link>
                             </li>
                     </ul>
                 </div>

@@ -15,6 +15,7 @@ export const createAccount = createAsyncThunk('/auth/createAccount',async (data)
     console.log("Incoming data to thunk",data);
     try{
         const response = axiosInstance.post('/users',data);
+        console.log("here",response)
         toast.promise(response ,{
             loading : 'Hold tight, we are registering your id...',
             success : 'Account created successfully',

@@ -9,6 +9,7 @@ function ProductDetails() {
     const dispatch = useDispatch();
     const [productDetails, setProductDetails] = useState({});
     const [isInCart, setIsInCart] = useState(false); // Check if product is in cart
+    const [quantity , setQuantity] = useState(0);
     // const { cartsData } = useSelector(state => state.cart); // Get cart details from Redux store
 
     
