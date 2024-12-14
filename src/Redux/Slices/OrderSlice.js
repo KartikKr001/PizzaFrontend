@@ -16,7 +16,9 @@ export const placeOfflineOrder = createAsyncThunk('/order/placeOrder', async (da
             error: 'Something went wrong',
             success: 'Order created successfully',
         });
+        console.log("api:",response)
         const apiResponse = await response;
+        console.log("api:",apiResponse)
         return apiResponse;
     } catch(error) {
         toast.error(error.response.data.message);
