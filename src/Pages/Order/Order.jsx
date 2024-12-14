@@ -47,9 +47,8 @@ function Order() {
 
         try {
             if (details.paymentMethod === "offline") {
-                const response = dispatch(placeOfflineOrder(details));
+                const response = await dispatch(placeOfflineOrder(details));
                 if (response?.payload?.data?.success) {
-                    toast.success("Order placed successfully");
                     navigate("/order/success");
                 }
             } else {
@@ -81,10 +80,8 @@ function Order() {
                 const razor = new window.Razorpay(options);
                 
                 razor.open();
-
                     razor.on("payment.success", (response) => {
                         toast.success("Payment successful!");
-                        navigate("/order/success");
                     });
 
                     razor.on("payment.failed", (response) => {
