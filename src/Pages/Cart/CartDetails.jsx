@@ -25,7 +25,7 @@ function CartDetails() {
         const response = await dispatch(removeProductFromCart(productId));
         if(response?.payload?.data?.success) {
             console.log("removed successfully")
-            await dispatch(getCartDetails()); // Fetch cart details and update state
+            dispatch(getCartDetails()); // Fetch cart details and update state
         }
         SetIsInCart(false)
     }

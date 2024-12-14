@@ -19,13 +19,14 @@ export const createAccount = createAsyncThunk('/auth/createAccount',async (data)
         toast.promise(response ,{
             loading : 'Hold tight, we are registering your id...',
             success : 'Account created successfully',
-            error : 'Ohh No! something went wrong, Please try again'
+            error : 'Something went wrong'
         });
         const apiResponse = await response;
         return apiResponse;
     }
     catch(error){
         console.log(error);
+        toast.error(error.response.data.message)
         throw error;
     }
 })

@@ -10,11 +10,11 @@ axiosInstance.defaults.withCredentials = true; // Ensure cookies are sent with e
 export const addProductToCart = createAsyncThunk('/carts/addProduct',async (productId)=>{
     try{
         const response = axiosInstance.post(`/carts/add/${productId}`);
-        toast.promise(response,{
-            loading : 'Added product to cart',
-            error : "Something went wrong, Cann't add product",
-            success : "Product added successfully"
-        })
+        // toast.promise(response,{
+        //     loading : 'Added product to cart',
+        //     error : "Something went wrong, Cann't add product",
+        //     success : "Product added successfully"
+        // })
         const apiResponse = await response;
         return apiResponse;
     }
@@ -30,11 +30,11 @@ export const addProductToCart = createAsyncThunk('/carts/addProduct',async (prod
 export const getCartDetails = createAsyncThunk('/cart/getdetails',async ()=>{
     try{
         const response = axiosInstance.get(`/carts`);
-        toast.promise(response,{
-            loading : 'Fetching cart details...',
-            error : "Something went wrong, Cann't fetch cart",
-            success : "Cart Fetched successfully"
-        })
+        // toast.promise(response,{
+        //     loading : 'Fetching cart details...',
+        //     error : "Something went wrong, Cann't fetch cart",
+        //     success : "Cart Fetched successfully"
+        // })
         const apiResponse = await response;
         console.log(apiResponse);
         return apiResponse;

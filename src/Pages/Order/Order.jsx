@@ -47,12 +47,10 @@ function Order() {
 
         try {
             if (details.paymentMethod === "offline") {
-                const response = await dispatch(placeOfflineOrder(details));
+                const response = dispatch(placeOfflineOrder(details));
                 if (response?.payload?.data?.success) {
                     toast.success("Order placed successfully");
                     navigate("/order/success");
-                } else {
-                    toast.error("Something went wrong. Cannot place order.");
                 }
             } else {
                 const onlineDetails = {
