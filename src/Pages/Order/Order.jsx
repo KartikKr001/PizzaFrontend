@@ -48,6 +48,7 @@ function Order() {
         try {
             if (details.paymentMethod === "offline") {
                 const response = await dispatch(placeOfflineOrder(details));
+                console.log(response)
                 if (response?.payload?.data?.success) {
                     navigate("/order/success");
                 }
